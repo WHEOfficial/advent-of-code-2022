@@ -1,6 +1,6 @@
 use crate::utils;
 
-pub fn part_one() {
+pub fn part_one() -> i32{
     let lines = utils::files::get_lines("data/day01.txt");
     let mut prev = 0;
     let mut current = 0;
@@ -16,10 +16,10 @@ pub fn part_one() {
     }
 
     if current > prev {prev = current}
-    println!("Highest total is {}", prev);
+    prev
 }
 
-pub fn part_two() {
+pub fn part_two() -> i32 {
     let lines = utils::files::get_lines("data/day01.txt");
     let mut totals = Vec::new();
     let mut sum = 0;
@@ -36,5 +36,5 @@ pub fn part_two() {
     totals.push(sum);
     totals.sort_by(|a, b| b.cmp(a));
 
-    println!("Sum of three highest is {}", totals[0] + totals[1] + totals[2]);
+    totals[0] + totals[1] + totals[2]
 }

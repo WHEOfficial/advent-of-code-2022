@@ -12,8 +12,10 @@ mod day01;
 
 fn main() {
     let now = Instant::now();
-    day01::part_one();
-    day01::part_two();
+    let one_ans = day01::part_one();
+    let two_ans = day01::part_two();
     let elapsed = now.elapsed();
+
+    println!("Part one answer is {0}, part two is {1}", one_ans, two_ans);
     println!("Elapsed: {:.2?}", elapsed);
 }
