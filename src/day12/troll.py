@@ -29,7 +29,6 @@ with open('data/day12.txt', 'r') as infile:
             o = 0 if c == 'S' else 25 if c == 'E' else ord(c) - 97
             if c == 'S':
                 start = (x, y)
-                starts.append((x, y))
             elif c == 'a':
                 starts.append((x, y))
             elif c == 'E':
