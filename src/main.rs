@@ -1,6 +1,7 @@
 // please forgive my rust illiteracy
 #![allow(dead_code)]
 #![allow(unused_variables)]
+#![allow(unused_imports)]
 
 use std::time::Instant;
 
