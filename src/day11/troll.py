@@ -1,3 +1,5 @@
+from functools import reduce
+
 ops = {
     '+': lambda x, y: x + y,
     '*': lambda x, y: x * y,
@@ -30,12 +32,25 @@ class Monkey:
             item = ops[self.op](item, self.num)
             item = item // 3 if worried else item
             if item % self.cond == 0:
-                item = item % self.cond if not worried else item
+                #item = primes(item) if not worried else item
                 self.receivers[0].add_item(item)
             else:
-                item = item % self.cond if not worried else item
                 self.receivers[1].add_item(item)
             self.inspected += 1
+
+# from https://stackoverflow.com/questions/16996217/prime-factorization-list
+# slightly modified
+def primes(n):
+    primfac = []
+    d = 2
+    while d*d <= n:
+        while (n % d) == 0:
+            primfac.append(d)  # supposing you want multiple factors repeated
+            n //= d
+        d += 1
+    if n > 1:
+       primfac.append(n)
+    return reduce(lambda x, y: x*y, [*set(primfac)])
 
 def solution(rounds, monkeys):
     for i in range(rounds):
