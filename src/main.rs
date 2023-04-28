@@ -1,5 +1,6 @@
 // please forgive my rust illiteracy
 #![allow(dead_code)]
+#![allow(unused_variables)]
 
 use std::time::Instant;
 
@@ -12,13 +13,14 @@ mod day01;
 mod day02;
 mod day03;
 mod day04;
+mod day05;
 
 fn main() {
-    let run_better_tests = true;
+    let run_better_tests = false;
 
     let now = Instant::now();
-    let one_ans = day04::part_one();
-    let two_ans = day04::part_two();
+    let one_ans = day05::part_one();
+    let two_ans = day05::part_two();
     let elapsed = now.elapsed();
 
     println!("Part one answer is {0}, part two is {1}", one_ans, two_ans);
