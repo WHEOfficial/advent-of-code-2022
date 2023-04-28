@@ -12,8 +12,8 @@ mod day01;
 
 fn main() {
     let now = Instant::now();
-    warmup::part_one();
-    warmup::part_two();
+    day01::part_one();
+    day01::part_two();
     let elapsed = now.elapsed();
     println!("Elapsed: {:.2?}", elapsed);
 }
