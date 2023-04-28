@@ -11,7 +11,7 @@ pub fn part_one() -> i32 {
         let r1: Vec<&str> = ranges[0].split("-").collect();
         let r2: Vec<&str> = ranges[1].split("-").collect();
 
-        // at this point i begin to realize how much i don't know rust
+        // at this point i began to realize how much i don't know rust
 
         // i did try to do it without using ranges and just comparing the mins
         // and maxs of each range but i must've screwed something up somewhere
