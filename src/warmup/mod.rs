@@ -6,7 +6,7 @@ pub fn part_one() {
     let mut previous = 0;
 
     for s in lines {
-        let num: i32 = s.parse().unwrap();
+        let num: i32 = s.trim().parse().unwrap();
         if num > previous && previous != 0 { increases += 1; }
         previous = num;
     }
@@ -18,10 +18,11 @@ pub fn part_two() {
     let mut increases = 0;
 
     for i in 0..lines.len() - 3 {
-        let n1: i32 = lines[i].parse().unwrap();
-        let n2: i32 = lines[i+1].parse().unwrap();
-        let n3: i32 = lines[i+2].parse().unwrap();
-        let n4: i32 = lines[i+3].parse().unwrap();
+        //println!("{}", lines[i]);
+        let n1: i32 = lines[i].trim().parse().unwrap();
+        let n2: i32 = lines[i+1].trim().parse().unwrap();
+        let n3: i32 = lines[i+2].trim().parse().unwrap();
+        let n4: i32 = lines[i+3].trim().parse().unwrap();
 
         let s1 = n1 + n2 + n3;
         let s2 = n2 + n3 + n4;
