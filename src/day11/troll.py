@@ -26,13 +26,11 @@ class Monkey:
         self.receivers = receivers
     
     def simulate_items(self):
-        #print(f'Items: {self.items}')
         while len(self.items) > 0:
             item = self.items.pop()
             item = ops[self.op](item, self.num)
             item = item // 3 if worried else item % lcm
             if item % self.cond == 0:
-                #item = primes(item) if not worried else item
                 self.receivers[0].add_item(item)
             else:
                 self.receivers[1].add_item(item)
@@ -87,5 +85,3 @@ if do_part1:
 else:
     worried = False
     solution(10000, monkeys)
-
-# too tired to figure out how to do part 2 rn
