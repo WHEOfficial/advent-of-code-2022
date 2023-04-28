@@ -1,4 +1,4 @@
-from functools import reduce
+from math import gcd
 
 ops = {
     '+': lambda x, y: x + y,
@@ -30,27 +30,13 @@ class Monkey:
         while len(self.items) > 0:
             item = self.items.pop()
             item = ops[self.op](item, self.num)
-            item = item // 3 if worried else item
+            item = item // 3 if worried else item % lcm
             if item % self.cond == 0:
                 #item = primes(item) if not worried else item
                 self.receivers[0].add_item(item)
             else:
                 self.receivers[1].add_item(item)
             self.inspected += 1
-
-# from https://stackoverflow.com/questions/16996217/prime-factorization-list
-# slightly modified
-def primes(n):
-    primfac = []
-    d = 2
-    while d*d <= n:
-        while (n % d) == 0:
-            primfac.append(d)  # supposing you want multiple factors repeated
-            n //= d
-        d += 1
-    if n > 1:
-       primfac.append(n)
-    return reduce(lambda x, y: x*y, [*set(primfac)])
 
 def solution(rounds, monkeys):
     for i in range(rounds):
@@ -89,11 +75,17 @@ monkey7.set_receivers([monkey1, monkey5])
 
 monkeys = [monkey0, monkey1, monkey2, monkey3, monkey4, monkey5, monkey6, monkey7]
 
+lcm = 1
+lcm_list = [11, 3, 5, 7, 19, 2, 13, 17]
+
+for i in lcm_list:
+    lcm = lcm * i // gcd(lcm, i)
+
 if do_part1:
     worried = True
     solution(20, monkeys)
 else:
     worried = False
-    solution(20, monkeys)
+    solution(10000, monkeys)
 
 # too tired to figure out how to do part 2 rn
