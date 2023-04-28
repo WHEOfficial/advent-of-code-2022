@@ -1,3 +1,3 @@
-pub fn part1() {
+pub fn part_one() {
     println!("Day 1 Ran")
 }
