@@ -15,13 +15,14 @@ mod day03;
 mod day04;
 mod day05;
 mod day06;
+mod day07;
 
 fn main() {
     let run_better_tests = false;
 
     let now = Instant::now();
-    let one_ans = day06::part_one();
-    let two_ans = day06::part_two();
+    let one_ans = day07::part_one();
+    let two_ans = day07::part_two();
     let elapsed = now.elapsed();
 
     println!("Part one answer is {0}, part two is {1}", one_ans, two_ans);
